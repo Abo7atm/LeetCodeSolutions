@@ -1,7 +1,9 @@
+# https://leetcode.com/problems/add-binary/
+# Passed: 36ms, 3.7MB
+
 def add_binary(a: str, b:str) -> str:
-    a='0b'+a
-    b='0b'+b
-    return bin(int(a,2)+int(b,2))[2:]
+    return bin(int('0b'+a, 2)+int('0b'+b, 2))[2:]
+
 
 if __name__=='__main__':
     flag = True

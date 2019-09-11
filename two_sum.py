@@ -1,6 +1,7 @@
-from typing import List
+# https://leetcode.com/problems/two-sum/
+# Passed: 7220ms, 14.6MB
 
-def two_sum(nums: List[int], target: int) -> List[int]:
+def two_sum(nums, target):
     # select an element ...
     for i,v in enumerate(nums):
         # if element is greater than the target, skip
@@ -9,17 +10,13 @@ def two_sum(nums: List[int], target: int) -> List[int]:
         # ... then iterate through the list to find other element
         # that make pair equal target
         for j,b in enumerate(nums[i+1:]):
-            print({'i': i, 'v': v, 'j': j, 'b': b})
             # if element is greater than the target, skip
             if b > target:
                 pass
             # return if pair equal target
             if v+b == target:
-                print('DONE')
                 # how to fix same element selection?
-                # return [nums.index(v), nums.index(b)]
                 return [i, j+i+1]
-    return [0,0]
 
 if __name__ == '__main__':
     # first test

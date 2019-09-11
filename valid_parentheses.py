@@ -1,21 +1,19 @@
-# sudo code -- again
-# for char in string
-#   if char is opening
-#       count opening
-#       add closing to expected stack
-#           
+# https://leetcode.com/problems/valid-parentheses/
+# Passed: 40ms, 13.8MB
+           
 def is_valid(s: str) -> bool:
+    pairs = {'(': ')', '{': '}', '[': ']'}
+    opening = list(pairs.keys())
+
     nxt = []
+
     for i in s:
-        if ord(i) in [40, 91, 123]: # chr(124) = '|'
-            nxt.insert(0, chr(ord(i)+1))
+        if i in opening:
+            nxt.insert(0, pairs[i])
         else:
             if len(nxt) == 0:
                 return False
-            a = nxt.pop(0)
-            print(a)
-            if a != i:
-                print('false 2')
+            if nxt.pop(0) != i:
                 return False
     if len(nxt) == 0:
         return True
